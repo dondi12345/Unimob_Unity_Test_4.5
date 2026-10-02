@@ -47,6 +47,7 @@ namespace Unimob.Construction
                 constructionData.Income_Pow = item["Income_Pow"].AsInt;
                 constructionData.UpgradeCost_Base = item["UpgradeCost_Base"].AsDouble;
                 constructionData.UpgradeCost_Pow = item["UpgradeCost_Pow"].AsInt;
+                constructionData.UpgradeCost_Mul = item["UpgradeCost_Mul"].AsDouble;
                 constructionData.IncomeUp_Base = item["IncomeUp_Base"].AsDouble;
                 constructionData.IncomeUp_Pow = item["IncomeUp_Pow"].AsInt;
                 constructionData.BuyCost_Base = item["BuyCost_Base"].AsDouble;

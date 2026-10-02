@@ -59,6 +59,11 @@ namespace Unimob.Construction
 
         #region Function
 
+        public void UpdateData()
+        {
+            this.ConstructionRenderTitle.UpdateData();
+        }
+
         public void UpdateState()
         {
             switch (this.State)
@@ -88,7 +93,8 @@ namespace Unimob.Construction
             this.ConstructionRenderSkin.OpenBox();
         }
 
-        public void DoneUnlocking(){
+        public void DoneUnlocking()
+        {
             this.ConstructionRenderSkin.Unlock();
             this.ConstructionRenderTitle.DoneUnlocking();
             this.Processing();
@@ -150,15 +156,35 @@ namespace Unimob.Construction
             this.ConstructionTiming.SetData(this.Cooldown);
         }
 
+        public void Upgrade()
+        {
+            this.Construction.Upgrade();
+            this.UpdateData();
+        }
+
         public void OnPopup()
         {
-            if(this.State == ConstructionState.Lock){
-                Vector3 screenPoint = Camera.main.WorldToScreenPoint(this.transform.position);
-                PopupManager.Instance.OnUI(PopupCode.ConstructionUnlock, null, popup=>{
+            if (this.State == ConstructionState.Unlocking)
+            {
+                return;
+            }
+            Vector3 screenPoint = Camera.main.WorldToScreenPoint(this.transform.position);
+            if (this.State == ConstructionState.Lock)
+            {
+                PopupManager.Instance.OnUI(PopupCode.ConstructionUnlock, null, popup =>
+                {
                     ConstructionUnlock constructionUnlock = popup as ConstructionUnlock;
                     constructionUnlock.SetData(this, screenPoint);
                 });
+                return;
             }
+
+            PopupManager.Instance.OnUI(PopupCode.ConstructionUpgrade, null, popup =>
+            {
+                ConstructionUpgrade constructionUpgrade = popup as ConstructionUpgrade;
+                constructionUpgrade.SetData(this, screenPoint);
+            });
+
         }
         #endregion
 

@@ -42,7 +42,7 @@ namespace Unimob.Construction
         public void Upgrade(){
             this.Level++;
             this.Income = MathBigNumber.Add(this.Income, ConstructionDataController.Instance.GetIncomeUp(this.Type));
-            this.UpgradeCost = MathBigNumber.Add(this.UpgradeCost, ConstructionDataController.Instance.GetUpgradeCost(this.Type));
+            this.UpgradeCost = MathBigNumber.Multiply(this.UpgradeCost, ConstructionDataController.Instance.GetUpgradeCostMul(this.Type));
             this.FinalIncome = MathBigNumber.Multiply(this.Income, this.MultiplierIncome);
             this.Offline = MathBigNumber.Add(this.Offline, ConstructionDataController.Instance.GetOfflineUp(this.Type));
         }
@@ -63,6 +63,14 @@ namespace Unimob.Construction
 
         public BigNumber GetOffline(){
             return this.Offline;
+        }
+
+        public bool IsLevelMax(){
+            return this.Level >= this.ConstructionData.LevelMax;
+        }
+
+        public float GetCooldown(){
+            return this.ConstructionData.Cooldown;
         }
         #endregion
     }
