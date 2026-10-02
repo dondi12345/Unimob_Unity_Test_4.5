@@ -47,6 +47,9 @@ namespace Unimob.Construction
                 constructionData.UpgradeCost_Pow = item["UpgradeCost_Pow"].AsInt;
                 constructionData.IncomeUp_Base = item["IncomeUp_Base"].AsDouble;
                 constructionData.IncomeUp_Pow = item["IncomeUp_Pow"].AsInt;
+                constructionData.BuyCost_Base = item["BuyCost_Base"].AsDouble;
+                constructionData.BuyCost_Pow = item["BuyCost_Pow"].AsInt;
+                constructionData.TimeUnlock = item["TimeUnlock"].AsInt;
                 constructionData.CalculateIncome();
                 _constructionDataList.Add(constructionData.Type, constructionData);
             }
@@ -105,6 +108,24 @@ namespace Unimob.Construction
                 return new BigNumber(0);
             }
             return constructionData.BuyCost;
+        }
+
+        public float GetCooldownProcessing(ConstructionType type){
+            ConstructionData constructionData = _constructionDataList.Get(type);
+            if(constructionData == null){
+                NTLog.LogError($"ConstructionData not found: {type}");
+                return 0;
+            }
+            return constructionData.Cooldown;
+        }
+
+        public float GetTimeUnlock(ConstructionType type){
+            ConstructionData constructionData = _constructionDataList.Get(type);
+            if(constructionData == null){
+                NTLog.LogError($"ConstructionData not found: {type}");
+                return 0;
+            }
+            return constructionData.TimeUnlock;
         }
 
         #endregion

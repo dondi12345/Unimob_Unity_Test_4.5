@@ -6,46 +6,7 @@ namespace NTPackage.Functions
 {
     public class ObjectPoolingConfig
     {
-        public const string ElementalChemicalInputItemUI = "ElementalChemicalInputItemUI";
-        public const string BlockElementInputItemUI = "BlockElementInputItemUI";
-        public const string ElementChemicalMachineItemUI = "ElementChemicalMachineItemUI";
-        public const string BoxMachineItemUI = "BoxMachineItemUI";
-        public const string BlockElementItemUI = "BlockElementItemUI";
-        public const string BtnChoseElMachineChemicalUI = "BtnChoseElMachineChemicalUI";
-        public const string BtnChoseElChemicalGraphUI = "BtnChoseElChemicalGraphUI";
-        public const string GraphPointUI = "GraphPointUI";
-        public const string TextHorizontalUI = "TextHorizontalUI";
-        public const string TextVerticalUI = "TextVerticalUI";
-        public const string BetaItemUI = "BetaItemUI";
-        public const string PurposeElementUI = "PurposeElementUI";
-        public const string PurposeItemUI = "PurposeItemUI";
-        public const string AmountItemUI = "AmountItemUI";
-        public const string HyperlinkOutletLinkageInputItemUI = "HyperlinkOutletLinkageInputItemUI";
-        public const string HyperlinkFeedStageLinkageInputItemUI = "HyperlinkFeedStageLinkageInputItemUI";
-        public const string HyperlinkOutletLinkageAQInputItemUI = "HyperlinkOutletLinkageAQInputItemUI";
-        public const string HyperlinkOutletLinkageORGInputItemUI = "HyperlinkOutletLinkageORGInputItemUI";
-        public const string HyperlinkOutletLinkageDualInputItemUI = "HyperlinkOutletLinkageDualInputItemUI";
-        public const string HyperlinkFeedLinkageAqInputItemUI = "HyperlinkFeedLinkageAqInputItemUI";
-        public const string HyperlinkFeedLinkageOrgInputItemUI = "HyperlinkFeedLinkageOrgInputItemUI";
-        public const string HyperlinkHorizontalAqInputItemUI = "HyperlinkHorizontalAqInputItemUI";
-        public const string HyperlinkHorizontalOrgInputItemUI = "HyperlinkHorizontalOrgInputItemUI";
-        public const string HyperlinkHorizontalBothInputItemUI = "HyperlinkHorizontalBothInputItemUI";
-        public const string HyperlinkFeedLinkageOrgInputItemABUI = "HyperlinkFeedLinkageOrgInputItemABUI";
-        public const string HyperlinkFeedLinkageAqInputItemABUI = "HyperlinkFeedLinkageAqInputItemABUI";
-        public const string DynamicHInputBetaItemUI = "DynamicHInputBetaItemUI";
-        public const string DynamicHInputFeedItemUI = "DynamicHInputFeedItemUI";
-        public const string DynamicHInputFeedIChemicaltemUI = "DynamicHInputFeedIChemicaltemUI";
-        public const string DynamicHInputThakurItemUI = "DynamicHInputThakurItemUI";
-        public const string DynamicHFeedModelItemUI = "DynamicHFeedModelItemUI";
-        public const string DynamicHMachineBlockItemUI = "DynamicHMachineBlockItemUI";
-        public const string DynamicHFeedModelItemInputValueUI = "DynamicHFeedModelItemInputValueUI";
-        public const string StrippingEleInputItemUI = "StrippingEleInputItemUI";
-        public const string DynamicHInputKItemUI = "DynamicHInputKItemUI";
-        public const string DynamicHKFeedModelItemUI = "DynamicHKFeedModelItemUI";
-        public const string BetaItemInputUI = "BetaItemInputUI";
-        public const string SeparationTargetSelectIputItemUI = "SeparationTargetSelectIputItemUI";
-        public const string FeedBoxElementInputItemUI = "FeedBoxElementInputItemUI";
-        public const string RareEarthBoxElementInputItemUI = "RareEarthBoxElementInputItemUI";
+        public const string ProductSkin = "ProductSkin";
     }
 
     public class ObjectPoolingManager : NTBehaviour

@@ -11,6 +11,7 @@ namespace Unimob.Construction
 {
     public class ConstructionDataManager : NTBehaviour
     {
+
         [SerializeField]
         private NTDictionary<ConstructionType, Construction> _constructionList;
 
