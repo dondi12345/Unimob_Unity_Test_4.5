@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NTPackage.Functions;
 using NTPackage.UI;
 using Rubik.VFX;
+using Unimob.Delivery;
 using Unimob.Product;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,6 +25,8 @@ namespace Unimob.Construction
         public ConstructionTiming ConstructionTiming;
         public ConstructionRenderSkin ConstructionRenderSkin;
         public ConstructionRenderTitle ConstructionRenderTitle;
+        public Transform HarvestPoint;
+        public DeliveryRender DeliveryRenderRegister;
 
 
         public float Cooldown;
@@ -145,6 +148,7 @@ namespace Unimob.Construction
             this.State = ConstructionState.Completed;
             this.Cooldown = 0;
             this.ConstructionTiming.gameObject.SetActive(false);
+            ConstructionRenderManager.Instance.OnCompleted(this);
         }
 
         [NTButton]

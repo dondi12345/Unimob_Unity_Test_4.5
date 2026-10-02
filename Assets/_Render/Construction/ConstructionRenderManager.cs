@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using NTPackage.Functions;
+using Unimob.Delivery;
 using Unimob.Product;
 using UnityEngine;
 
@@ -28,6 +29,13 @@ namespace Unimob.Construction
             foreach(ConstructionRender constructionRender in this.ListConstructionRender){
                 constructionRender.Init();
             }
+        }
+
+        public void OnCompleted(ConstructionRender constructionRender){
+            if(!this.ListConstructionRender.Contains(constructionRender)){
+                return;
+            }
+            DeliveryController.Instance.RegisterDelivery(constructionRender);
         }
         #endregion
     }

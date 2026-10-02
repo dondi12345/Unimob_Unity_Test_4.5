@@ -25,8 +25,8 @@ namespace Unimob.Player
         #region Load
         public void Init(){
             this._playerData = new PlayerData();
-            this._playerData.Gold = new BigNumber(2);
-            this._playerData.Diamond = new BigNumber(2);
+            this._playerData.Gold = new BigNumber(2,2);
+            this._playerData.Diamond = new BigNumber(0);
         }
         #endregion 
 
