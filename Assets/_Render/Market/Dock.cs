@@ -12,5 +12,7 @@ namespace Unimob.Market
         public Transform Customer;
 
         public CustomerRender CustomerRenderRegister;
+
+        public bool IsUnlocked = false;
     }
 }

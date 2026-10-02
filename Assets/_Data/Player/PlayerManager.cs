@@ -34,6 +34,9 @@ namespace Unimob.Player
         public void SpendGold(BigNumber amount){
             this._playerData.Gold = MathBigNumber.Subtract(this._playerData.Gold, amount);
         }
+        public void AddGold(BigNumber amount){
+            this._playerData.Gold = MathBigNumber.Add(this._playerData.Gold, amount);
+        }
         #endregion
 
         #region Get

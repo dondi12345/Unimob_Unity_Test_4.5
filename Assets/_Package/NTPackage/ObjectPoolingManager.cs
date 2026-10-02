@@ -8,6 +8,7 @@ namespace NTPackage.Functions
     {
         public const string ProductSkin = "ProductSkin";
         public const string CustomerRender = "CustomerRender";
+        public const string DeliveryRender = "DeliveryRender";
     }
 
     public class ObjectPoolingManager : NTBehaviour

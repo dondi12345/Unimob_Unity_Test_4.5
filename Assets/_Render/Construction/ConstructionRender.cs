@@ -20,7 +20,7 @@ namespace Unimob.Construction
 
         public List<Transform> ListProductPosition;
         public List<ProductSkin> ListProduct;
-        public ProductSkin ProductSkinPrefab;
+        public ProductSkin ProductSkinPrefab; 
 
         public ConstructionTiming ConstructionTiming;
         public ConstructionRenderSkin ConstructionRenderSkin;
@@ -51,8 +51,22 @@ namespace Unimob.Construction
                 {
                     this.ProcessingUpdate();
                 }
+                else if (this.State == ConstructionState.Harvesting)
+                {
+                    this.HarvestingUpdate();
+                }
                 if (this.Cooldown <= 0)
                 {
+                    if (this.State == ConstructionState.Harvesting)
+                    {
+                        this.TransferProducts(this.ListProduct.Count);
+                        DeliveryRender delivery = this.DeliveryRenderRegister;
+                        this.DeliveryRenderRegister = null;
+                        if (delivery != null)
+                        {
+                            delivery.GoToCustomer();
+                        }
+                    }
                     this.ConstructionTiming.gameObject.SetActive(false);
                     this.UpdateState();
                 }
@@ -111,8 +125,8 @@ namespace Unimob.Construction
             this.State = ConstructionState.Processing;
             this._currentProductCount = 0;
             this.ListProduct.Clear();
-            // this.ConstructionTiming.gameObject.SetActive(false);
-            // this.ConstructionTiming.SetData(this.Cooldown);
+            this.ConstructionTiming.gameObject.SetActive(true);
+            this.ConstructionTiming.SetData(this.Cooldown);
         }
 
         int _currentProductCount = 0;
@@ -158,6 +172,39 @@ namespace Unimob.Construction
             this.Cooldown = ConstructionConfig.CooldownHarvesting;
             this.ConstructionTiming.gameObject.SetActive(true);
             this.ConstructionTiming.SetData(this.Cooldown);
+            this._harvestedCount = 0;
+            this._harvestTotal = this.ListProduct.Count;
+        }
+
+        int _harvestedCount = 0;
+        int _harvestTotal = 0;
+        public void HarvestingUpdate()
+        {
+            if (this._harvestTotal == 0)
+            {
+                return;
+            }
+            float progress = (ConstructionConfig.CooldownHarvesting - this.Cooldown) / ConstructionConfig.CooldownHarvesting;
+            int target = Mathf.Min(this._harvestTotal, Mathf.FloorToInt(progress * this._harvestTotal));
+            this.TransferProducts(target - this._harvestedCount);
+        }
+
+        private void TransferProducts(int count)
+        {
+            DeliveryRender delivery = this.DeliveryRenderRegister;
+            if (delivery == null)
+            {
+                Debug.LogWarning("[ConstructionRender] DeliveryRenderRegister null", this);
+                return;
+            }
+            for (int i = 0; i < count && this.ListProduct.Count > 0; i++)
+            {
+                int last = this.ListProduct.Count - 1;
+                ProductSkin productSkin = this.ListProduct[last];
+                this.ListProduct.RemoveAt(last);
+                this._harvestedCount++;
+                delivery.AddProduct(productSkin);
+            }
         }
 
         public void Upgrade()

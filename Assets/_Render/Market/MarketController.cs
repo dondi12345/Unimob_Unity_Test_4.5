@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NTPackage.Functions;
+using Unimob.Construction;
 using Unimob.Customer;
 using UnityEngine;
 
@@ -13,6 +14,13 @@ namespace Unimob.Market
 
         public List<Dock> Docks;
         public CustomerRender CustomerRenderPrefab;
+
+        public static MarketController Instance;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void Start()
         {
@@ -38,10 +46,13 @@ namespace Unimob.Market
             {
                 customer = Instantiate(this.CustomerRenderPrefab);
             }
+            customer.transform.SetParent(null);
             customer.transform.SetPositionAndRotation(this.CustomerStart.position, this.CustomerStart.rotation);
             customer.gameObject.SetActive(true);
+            customer.name = ObjectPoolingConfig.CustomerRender;
             dock.CustomerRenderRegister = customer;
             customer.GoToDock(dock);
+            ConstructionRenderManager.Instance.AddCustomer(customer);
         }
     }
 }

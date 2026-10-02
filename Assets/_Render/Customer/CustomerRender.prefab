@@ -53,6 +53,11 @@ MonoBehaviour:
   Speed: 3
   RotateSpeed: 10
   Dock: {fileID: 0}
+  ListPointProductPosition:
+  - {fileID: 6705992287755012221}
+  - {fileID: 1536628954673998253}
+  - {fileID: 5950762221663236594}
+  ListProduct: []
 --- !u!114 &645039174375256901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
+--- !u!4 &1536628954673998253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2134864908244946697, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
+  m_PrefabInstance: {fileID: 645039174286534308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2284937732186094777 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1677055900559989277, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
@@ -213,5 +223,15 @@ Animator:
 --- !u!4 &5924117237257312472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6540654423376592508, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
+  m_PrefabInstance: {fileID: 645039174286534308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5950762221663236594 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6514167691253798742, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
+  m_PrefabInstance: {fileID: 645039174286534308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6705992287755012221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6189031941684784857, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
   m_PrefabInstance: {fileID: 645039174286534308}
   m_PrefabAsset: {fileID: 0}

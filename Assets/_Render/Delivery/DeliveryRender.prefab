@@ -95,10 +95,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HumanAIMove: {fileID: 2132032246929811210}
-  HumanRenderSkin: {fileID: 0}
+  HumanRenderSkin: {fileID: 4246390576775520010}
   Speed: 3
   RotateSpeed: 10
   ConstructionRender: {fileID: 0}
+  ListPointProductPosition:
+  - {fileID: 5221180268986882555}
+  - {fileID: 15217629789960235}
+  - {fileID: 5183776247814381684}
+  ListProduct: []
+  Price:
+    Base: 0
+    Power: 0
 --- !u!114 &2132032246929811210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
+--- !u!4 &15217629789960235 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2134864908244946697, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
+  m_PrefabInstance: {fileID: 2132032246437590818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &779291497681841471 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1677055900559989277, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
@@ -213,5 +226,15 @@ Animator:
 --- !u!4 &5139612693067843934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6540654423376592508, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
+  m_PrefabInstance: {fileID: 2132032246437590818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5183776247814381684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6514167691253798742, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
+  m_PrefabInstance: {fileID: 2132032246437590818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5221180268986882555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6189031941684784857, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
   m_PrefabInstance: {fileID: 2132032246437590818}
   m_PrefabAsset: {fileID: 0}
