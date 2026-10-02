@@ -1,0 +1,62 @@
+[
+    {
+        "Name": "Wheat",
+        "LevelMax": 10,
+        "Cooldown": 10,
+        "Income_Base": 1,
+        "Income_Pow": 1,
+        "UpgradeCost_Base": 100,
+        "UpgradeCost_Pow": 0,
+        "UpgradeCost_Mul": 10,
+        "IncomeUp_Base": 2,
+        "IncomeUp_Pow": 0,
+        "BuyCost_Base": 1,
+        "BuyCost_Pow": 1,
+        "TimeUnlock": 10
+    },
+    {
+        "Name": "Wood",
+        "LevelMax": 10,
+        "Cooldown": 10,
+        "Income_Base": 2,
+        "Income_Pow": 0,
+        "UpgradeCost_Base": 1,
+        "UpgradeCost_Pow": 0,
+        "UpgradeCost_Mul": 10,
+        "IncomeUp_Base": 6,
+        "IncomeUp_Pow": 0,
+        "BuyCost_Base": 10,
+        "BuyCost_Pow": 1,
+        "TimeUnlock": 10
+    },
+    {
+        "Name": "Steel",
+        "LevelMax": 10,
+        "Cooldown": 10,
+        "Income_Base": 3,
+        "Income_Pow": 0,
+        "UpgradeCost_Base": 10,
+        "UpgradeCost_Pow": 1,
+        "UpgradeCost_Mul": 10,
+        "IncomeUp_Base": 12,
+        "IncomeUp_Pow": 1,
+        "BuyCost_Base": 100,
+        "BuyCost_Pow": 1,
+        "TimeUnlock": 10
+    },
+    {
+        "Name": "Clay",
+        "LevelMax": 10,
+        "Cooldown": 10,
+        "Income_Base": 4,
+        "Income_Pow": 0,
+        "UpgradeCost_Base": 100,
+        "UpgradeCost_Pow": 1,
+        "UpgradeCost_Mul": 10,
+        "IncomeUp_Base": 20,
+        "IncomeUp_Pow": 1,
+        "BuyCost_Base": 1,
+        "BuyCost_Pow": 2,
+        "TimeUnlock": 10
+    }
+]
