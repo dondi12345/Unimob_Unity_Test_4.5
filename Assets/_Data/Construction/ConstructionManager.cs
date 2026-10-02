@@ -9,22 +9,22 @@ using UnityEngine;
 
 namespace Unimob.Construction
 {
-    public class ConstructionDataManager : NTBehaviour
+    public class ConstructionManager : NTBehaviour
     {
 
         [SerializeField]
         private NTDictionary<ConstructionType, Construction> _constructionList;
 
-        public static ConstructionDataManager Instance;
+        public static ConstructionManager Instance;
         protected override void Awake()
         {
             base.Awake();
-            if (ConstructionDataManager.Instance != null)
+            if (ConstructionManager.Instance != null)
             {
                 NTLog.LogError("Only 1 Instance allow");
                 return;
             }
-            ConstructionDataManager.Instance = this;
+            ConstructionManager.Instance = this;
         }
 
         #region Load Data
@@ -39,15 +39,25 @@ namespace Unimob.Construction
             };
             this._constructionList = new NTDictionary<ConstructionType, Construction>();
             foreach (ConstructionType constructionType in listConstructionType){
+                ConstructionType type = constructionType;
                 Construction construction = new Construction();
-                construction.Init(constructionType);
-                this._constructionList.Add(constructionType, construction);
+                construction.Init(type);
+                this._constructionList.Add(type, construction);
             }
         }
 
         #endregion
 
         #region Get
+        public Construction GetConstruction(ConstructionType type){
+            Construction construction = this._constructionList.Get(type);
+            if(construction == null){
+                NTLog.LogError($"Construction not found: {type}");
+                return null;
+            }
+            return construction;
+        }
+        
 
         #endregion
 

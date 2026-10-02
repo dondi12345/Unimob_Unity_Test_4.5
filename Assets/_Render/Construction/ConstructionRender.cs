@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using NTPackage.Functions;
+using NTPackage.UI;
+using Rubik.VFX;
 using Unimob.Product;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Unimob.Construction
 {
@@ -19,19 +22,19 @@ namespace Unimob.Construction
         public ProductSkin ProductSkinPrefab;
 
         public ConstructionTiming ConstructionTiming;
+        public ConstructionRenderSkin ConstructionRenderSkin;
+        public ConstructionRenderTitle ConstructionRenderTitle;
 
-        public Transform TransBox;
-        public Transform TransProduct;
 
         public float Cooldown;
 
-        public void Init(Construction construction)
+        public void Init()
         {
-            this.Construction = construction;
+            this.Construction = ConstructionManager.Instance.GetConstruction(this.Type);
             this.State = ConstructionState.Lock;
             this.ConstructionTiming.gameObject.SetActive(false);
-            this.TransBox.gameObject.SetActive(true);
-            this.TransProduct.gameObject.SetActive(false);
+            this.ConstructionRenderSkin.Init();
+            this.ConstructionRenderTitle.Init();
         }
 
         protected override void Update()
@@ -63,7 +66,7 @@ namespace Unimob.Construction
                 case ConstructionState.Lock:
                     break;
                 case ConstructionState.Unlocking:
-                    this.Processing();
+                    this.DoneUnlocking();
                     break;
                 case ConstructionState.Processing:
                     this.Completed();
@@ -77,12 +80,20 @@ namespace Unimob.Construction
         [NTButton]
         public void Unlock()
         {
+            this.Construction.Bought();
             this.Cooldown = ConstructionDataController.Instance.GetTimeUnlock(this.Type);
             this.State = ConstructionState.Unlocking;
             this.ConstructionTiming.gameObject.SetActive(true);
             this.ConstructionTiming.SetData(this.Cooldown);
-            this.TransBox.gameObject.SetActive(false);
-            this.TransProduct.gameObject.SetActive(true);
+            this.ConstructionRenderSkin.OpenBox();
+        }
+
+        public void DoneUnlocking(){
+            this.ConstructionRenderSkin.Unlock();
+            this.ConstructionRenderTitle.DoneUnlocking();
+            this.Processing();
+            VFXGameEntity vfx = VFXGameManager.Instance.InstantiateFX(VFXGameConfig.ConstructionUnlockFX, this.transform.position, Quaternion.identity);
+            vfx.SetMoveTo(this.transform, 0.5f);
         }
 
         public void Processing()
@@ -137,6 +148,17 @@ namespace Unimob.Construction
             this.Cooldown = ConstructionConfig.CooldownHarvesting;
             this.ConstructionTiming.gameObject.SetActive(true);
             this.ConstructionTiming.SetData(this.Cooldown);
+        }
+
+        public void OnPopup()
+        {
+            if(this.State == ConstructionState.Lock){
+                Vector3 screenPoint = Camera.main.WorldToScreenPoint(this.transform.position);
+                PopupManager.Instance.OnUI(PopupCode.ConstructionUnlock, null, popup=>{
+                    ConstructionUnlock constructionUnlock = popup as ConstructionUnlock;
+                    constructionUnlock.SetData(this, screenPoint);
+                });
+            }
         }
         #endregion
 

@@ -16,6 +16,8 @@ namespace Unimob.Construction
         [SerializeField]
         private TextAsset _constructionDataJson;
 
+        public List<Sprite> ListIcon;
+
         public static ConstructionDataController Instance;
         protected override void Awake()
         {
@@ -50,7 +52,11 @@ namespace Unimob.Construction
                 constructionData.BuyCost_Base = item["BuyCost_Base"].AsDouble;
                 constructionData.BuyCost_Pow = item["BuyCost_Pow"].AsInt;
                 constructionData.TimeUnlock = item["TimeUnlock"].AsInt;
-                constructionData.CalculateIncome();
+                constructionData.Offline_Base = item["Offline_Base"].AsDouble;
+                constructionData.Offline_Pow = item["Offline_Pow"].AsInt;
+                constructionData.OfflineUp_Base = item["OfflineUp_Base"].AsDouble;
+                constructionData.OfflineUp_Pow = item["OfflineUp_Pow"].AsInt;
+                constructionData.Calculate();
                 _constructionDataList.Add(constructionData.Type, constructionData);
             }
             
@@ -110,6 +116,24 @@ namespace Unimob.Construction
             return constructionData.BuyCost;
         }
 
+        public BigNumber GetOffline(ConstructionType type){
+            ConstructionData constructionData = _constructionDataList.Get(type);
+            if(constructionData == null){
+                NTLog.LogError($"ConstructionData not found: {type}");
+                return new BigNumber(0);
+            }
+            return constructionData.Offline;
+        }
+
+        public BigNumber GetOfflineUp(ConstructionType type){
+            ConstructionData constructionData = _constructionDataList.Get(type);
+            if(constructionData == null){
+                NTLog.LogError($"ConstructionData not found: {type}");
+                return new BigNumber(0);
+            }
+            return constructionData.OfflineUp;
+        }
+
         public float GetCooldownProcessing(ConstructionType type){
             ConstructionData constructionData = _constructionDataList.Get(type);
             if(constructionData == null){
@@ -126,6 +150,19 @@ namespace Unimob.Construction
                 return 0;
             }
             return constructionData.TimeUnlock;
+        }
+
+        public Sprite GetIcon(ConstructionType constructionType){
+            return this.ListIcon[(int)constructionType];
+        }
+
+        public string GetName(ConstructionType constructionType){
+            ConstructionData constructionData = _constructionDataList.Get(constructionType);
+            if(constructionData == null){
+                NTLog.LogError($"ConstructionData not found: {constructionType}");
+                return "";
+            }
+            return constructionData.Name;
         }
 
         #endregion

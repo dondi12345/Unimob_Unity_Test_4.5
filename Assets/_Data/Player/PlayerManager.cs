@@ -25,10 +25,16 @@ namespace Unimob.Player
         #region Load
         public void Init(){
             this._playerData = new PlayerData();
-            this._playerData.Gold = new BigNumber(100);
+            this._playerData.Gold = new BigNumber(1000);
             this._playerData.Diamond = new BigNumber(0);
         }
         #endregion 
+
+        #region Function
+        public void SpendGold(BigNumber amount){
+            this._playerData.Gold = MathBigNumber.Subtract(this._playerData.Gold, amount);
+        }
+        #endregion
 
         #region Get
         public BigNumber GetGold(){

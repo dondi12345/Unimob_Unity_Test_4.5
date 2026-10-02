@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Unimob.Construction
 {
+    [System.Serializable]
     public class Construction
     {
         public ConstructionType Type;
@@ -17,6 +18,7 @@ namespace Unimob.Construction
         public BigNumber Income;
         public BigNumber UpgradeCost;
         public BigNumber FinalIncome;
+        public BigNumber Offline;
 
         public float MultiplierIncome;
         
@@ -28,6 +30,8 @@ namespace Unimob.Construction
             this.ConstructionData = ConstructionDataController.Instance.GetConstructionData(type);
             this.Income = ConstructionDataController.Instance.GetIncome(type);
             this.UpgradeCost = ConstructionDataController.Instance.GetUpgradeCost(type);
+            this.Offline = ConstructionDataController.Instance.GetOffline(type);
+            this.FinalIncome = this.Income;
             this.MultiplierIncome = 1;
         }
 
@@ -38,8 +42,9 @@ namespace Unimob.Construction
         public void Upgrade(){
             this.Level++;
             this.Income = MathBigNumber.Add(this.Income, ConstructionDataController.Instance.GetIncomeUp(this.Type));
-            this.UpgradeCost = MathBigNumber.Multiply(this.UpgradeCost, ConstructionDataController.Instance.GetUpgradeCostMul(this.Type));
+            this.UpgradeCost = MathBigNumber.Add(this.UpgradeCost, ConstructionDataController.Instance.GetUpgradeCost(this.Type));
             this.FinalIncome = MathBigNumber.Multiply(this.Income, this.MultiplierIncome);
+            this.Offline = MathBigNumber.Add(this.Offline, ConstructionDataController.Instance.GetOfflineUp(this.Type));
         }
 
         #endregion
@@ -54,6 +59,10 @@ namespace Unimob.Construction
 
         public BigNumber GetBuyCost(){
             return ConstructionDataController.Instance.GetBuyCost(this.Type);
+        }
+
+        public BigNumber GetOffline(){
+            return this.Offline;
         }
         #endregion
     }

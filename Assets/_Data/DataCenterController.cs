@@ -32,6 +32,10 @@ namespace Unimob.DataCenter
         }
         public void Init(){
             PlayerManager.Instance.Init();
+            ConstructionManager.Instance.Init();
+
+            // Render
+            ConstructionRenderManager.Instance.Init();
         }
         #endregion
     }

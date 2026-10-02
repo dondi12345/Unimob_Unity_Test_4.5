@@ -28,18 +28,26 @@ namespace Unimob.Construction
         public double BuyCost_Base;
         public int BuyCost_Pow;
         public int TimeUnlock;
+        public double Offline_Base;
+        public int Offline_Pow;
+        public double OfflineUp_Base;
+        public int OfflineUp_Pow;
 
         //Cache
         public BigNumber Income;
         public BigNumber UpgradeCost;
         public BigNumber IncomeUp;
         public BigNumber BuyCost;
+        public BigNumber Offline;
+        public BigNumber OfflineUp;
 
-        public void CalculateIncome(){
+        public void Calculate(){
             this.Income = new BigNumber(Income_Base, Income_Pow);
             this.IncomeUp = new BigNumber(IncomeUp_Base, IncomeUp_Pow);
             this.UpgradeCost = new BigNumber(UpgradeCost_Base, UpgradeCost_Pow);
             this.BuyCost = new BigNumber(BuyCost_Base, BuyCost_Pow);
+            this.Offline = new BigNumber(Offline_Base, Offline_Pow);
+            this.OfflineUp = new BigNumber(OfflineUp_Base, OfflineUp_Pow);
         }
     }
 }

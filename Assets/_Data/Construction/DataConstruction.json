@@ -12,7 +12,11 @@
         "IncomeUp_Pow": 0,
         "BuyCost_Base": 1,
         "BuyCost_Pow": 1,
-        "TimeUnlock": 10
+        "TimeUnlock": 10,
+        "Offline_Base": 12,
+        "Offline_Pow": 1,
+        "OfflineUp_Base": 24,
+        "OfflineUp_Pow": 1
     },
     {
         "Name": "Wood",
@@ -27,7 +31,11 @@
         "IncomeUp_Pow": 0,
         "BuyCost_Base": 10,
         "BuyCost_Pow": 1,
-        "TimeUnlock": 10
+        "TimeUnlock": 10,
+        "Offline_Base": 12,
+        "Offline_Pow": 1,
+        "OfflineUp_Base": 36,
+        "OfflineUp_Pow": 1
     },
     {
         "Name": "Steel",
@@ -42,7 +50,11 @@
         "IncomeUp_Pow": 1,
         "BuyCost_Base": 100,
         "BuyCost_Pow": 1,
-        "TimeUnlock": 10
+        "TimeUnlock": 10,
+        "Offline_Base": 12,
+        "Offline_Pow": 1,
+        "OfflineUp_Base": 48,
+        "OfflineUp_Pow": 1
     },
     {
         "Name": "Clay",
@@ -57,6 +69,10 @@
         "IncomeUp_Pow": 1,
         "BuyCost_Base": 1,
         "BuyCost_Pow": 2,
-        "TimeUnlock": 10
+        "TimeUnlock": 10,
+        "Offline_Base": 12,
+        "Offline_Pow": 1,
+        "OfflineUp_Base": 60,
+        "OfflineUp_Pow": 1
     }
 ]

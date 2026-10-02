@@ -16,6 +16,6 @@ namespace NTPackage.UI
     public enum PopupCode
     {
         Unknown = 0,
-        
+        ConstructionUnlock = 1,
     }
 }
