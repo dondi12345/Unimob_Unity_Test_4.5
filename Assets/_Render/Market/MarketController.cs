@@ -11,6 +11,14 @@ namespace Unimob.Market
         public Transform DeleveryEnd;
         public Transform CustomerStart;
         public Transform CustomerEnd;
+        public float EndRadius = 1f;
+
+        public bool IsInEnd(Vector3 position, Transform end)
+        {
+            Vector3 offset = position - end.position;
+            offset.y = 0f;
+            return offset.sqrMagnitude <= this.EndRadius * this.EndRadius;
+        }
 
         public List<Dock> Docks;
         public CustomerRender CustomerRenderPrefab;

@@ -72,9 +72,14 @@ namespace Unimob.Delivery
         private IEnumerator MoveRoutine(NavMeshAgent agent, DeliveryMoveTarget moveTarget)
         {
             float stuckTime = 0f;
+            Transform end = MarketController.Instance.DeleveryEnd;
             while (true)
             {
                 yield return null;
+                if (moveTarget == DeliveryMoveTarget.End && MarketController.Instance.IsInEnd(this.transform.position, end))
+                {
+                    break;
+                }
                 if (agent.pathPending)
                 {
                     continue;

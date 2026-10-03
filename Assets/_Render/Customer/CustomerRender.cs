@@ -74,9 +74,14 @@ namespace Unimob.Customer
 
         private IEnumerator MoveRoutine(NavMeshAgent agent, bool toEnd)
         {
+            Transform end = MarketController.Instance.CustomerEnd;
             do
             {
                 yield return null;
+                if (toEnd && MarketController.Instance.IsInEnd(this.transform.position, end))
+                {
+                    break;
+                }
             }
             while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance);
 

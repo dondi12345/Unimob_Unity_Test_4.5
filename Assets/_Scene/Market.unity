@@ -3355,7 +3355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 312433908}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -5537,6 +5537,7 @@ MonoBehaviour:
   DeleveryEnd: {fileID: 802812026}
   CustomerStart: {fileID: 1741838762}
   CustomerEnd: {fileID: 1231698709}
+  EndRadius: 1
   Docks:
   - {fileID: 1238240742}
   - {fileID: 1238240741}
