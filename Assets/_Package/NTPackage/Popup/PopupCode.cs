@@ -18,5 +18,6 @@ namespace NTPackage.UI
         Unknown = 0,
         ConstructionUnlock = 1,
         ConstructionUpgrade = 2,
+        UpgradeDataUI = 3,
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NTPackage.EventDispatcher;
 using NTPackage.Functions;
 using NTPackage.UI;
 using Rubik.VFX;
@@ -38,6 +39,9 @@ namespace Unimob.Construction
             this.ConstructionTiming.gameObject.SetActive(false);
             this.ConstructionRenderSkin.Init();
             this.ConstructionRenderTitle.Init();
+            EventListenerManager.Instance.Register(EventCode.ConstructionUpgrade, this.Type.ToString(), (data)=>{
+                this.UpdateData();
+            });
         }
 
         protected override void Update()

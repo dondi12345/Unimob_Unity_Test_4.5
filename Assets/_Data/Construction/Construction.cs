@@ -47,6 +47,11 @@ namespace Unimob.Construction
             this.Offline = MathBigNumber.Add(this.Offline, ConstructionDataController.Instance.GetOfflineUp(this.Type));
         }
 
+        public void UpgradeMultiplierIncome(float value){
+            this.MultiplierIncome = value;
+            this.FinalIncome = MathBigNumber.Multiply(this.Income, this.MultiplierIncome);
+        }
+
         #endregion
 
         #region Get
@@ -67,6 +72,10 @@ namespace Unimob.Construction
 
         public bool IsLevelMax(){
             return this.Level >= this.ConstructionData.LevelMax;
+        }
+
+        public int GetLevelMax(){
+            return this.ConstructionData.LevelMax;
         }
 
         public float GetCooldown(){

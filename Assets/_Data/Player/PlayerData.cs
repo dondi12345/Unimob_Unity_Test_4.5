@@ -6,6 +6,12 @@ using UnityEngine;
 
 namespace Unimob.Player
 {
+
+    public enum PlayerCurrency{
+        Gold,
+        Diamond,
+    }
+
     [System.Serializable]
     public class PlayerData
     {

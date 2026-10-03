@@ -11,6 +11,8 @@ namespace Unimob.Player
         [SerializeField]
         private PlayerData _playerData;
 
+        public List<Sprite> ListIconCurrency;
+
         public static PlayerManager Instance;
         protected override void Awake()
         {
@@ -45,6 +47,21 @@ namespace Unimob.Player
         }
         public BigNumber GetDiamond(){
             return _playerData.Diamond;
+        }
+
+        public Sprite GetIconCurrency(PlayerCurrency currency){
+            return this.ListIconCurrency[(int)currency];
+        }
+
+        public BigNumber GetCurrency(PlayerCurrency currency){
+            switch (currency){
+                case PlayerCurrency.Gold:
+                    return this.GetGold();
+                case PlayerCurrency.Diamond:
+                    return this.GetDiamond();
+                default:
+                    return new BigNumber(0);
+            }
         }
         #endregion
     }

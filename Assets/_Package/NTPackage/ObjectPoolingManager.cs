@@ -6,6 +6,7 @@ namespace NTPackage.Functions
 {
     public class ObjectPoolingConfig
     {
+        public const string UpgradeDataItem = "UpgradeDataItem";
         public const string ProductSkin = "ProductSkin";
         public const string CustomerRender = "CustomerRender";
         public const string DeliveryRender = "DeliveryRender";

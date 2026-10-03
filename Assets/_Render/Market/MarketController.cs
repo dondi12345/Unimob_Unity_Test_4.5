@@ -14,6 +14,7 @@ namespace Unimob.Market
 
         public List<Dock> Docks;
         public CustomerRender CustomerRenderPrefab;
+        public int CustomerWaitAmount = 1;
 
         public static MarketController Instance;
 
@@ -27,16 +28,49 @@ namespace Unimob.Market
             this.CheckDocks();
         }
 
+        public void AddCustomerWaitAmount(int amount)
+        {
+            this.CustomerWaitAmount += amount;
+            this.CheckDocks();
+        }
+
         public void CheckDocks()
         {
+            int emptyCount = 0;
+            for (int i = 0; i < this.Docks.Count; i++)
+            {
+                if (this.Docks[i].CustomerRenderRegister == null)
+                {
+                    emptyCount++;
+                }
+            }
+
+            int waitingCount = this.Docks.Count - emptyCount;
+            while (waitingCount < this.CustomerWaitAmount && emptyCount > 0)
+            {
+                this.SpawnCustomer(this.GetRandomEmptyDock(emptyCount));
+                emptyCount--;
+                waitingCount++;
+            }
+        }
+
+        private Dock GetRandomEmptyDock(int emptyCount)
+        {
+            int pick = Random.Range(0, emptyCount);
             for (int i = 0; i < this.Docks.Count; i++)
             {
                 Dock dock = this.Docks[i];
-                if (dock.CustomerRenderRegister == null)
+                if (dock.CustomerRenderRegister != null)
                 {
-                    this.SpawnCustomer(dock);
+                    continue;
                 }
+                if (pick == 0)
+                {
+                    return dock;
+                }
+                pick--;
             }
+            return null;
         }
 
         private void SpawnCustomer(Dock dock)

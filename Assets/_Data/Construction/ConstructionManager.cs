@@ -57,6 +57,14 @@ namespace Unimob.Construction
             }
             return construction;
         }
+
+        public List<Construction> GetListConstruction(){
+            List<Construction> listConstruction = new List<Construction>();
+            foreach (ConstructionType type in this._constructionList.GetKeys()){
+                listConstruction.Add(this._constructionList.Get(type));
+            }
+            return listConstruction;
+        }
         
 
         #endregion

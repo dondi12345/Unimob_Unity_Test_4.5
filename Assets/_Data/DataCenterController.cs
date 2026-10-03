@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NTPackage.Functions;
 using Unimob.Construction;
 using Unimob.Player;
+using Unimob.Upgrade;
 using UnityEngine;
 
 namespace Unimob.DataCenter
@@ -29,6 +30,7 @@ namespace Unimob.DataCenter
         #region Load
         public void LoadData(){
             ConstructionDataController.Instance.LoadData();
+            UpgradeDataController.Instance.LoadData();
         }
         public void Init(){
             PlayerManager.Instance.Init();

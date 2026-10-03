@@ -1,0 +1,98 @@
+[
+    {
+        "Index": 0,
+        "Name": "Wheat Profit",
+        "Type": "Wheat",
+        "Value": 2,
+        "Price_Base": 1,
+        "Price_Pow": 1
+    },
+    {
+        "Index": 1,
+        "Name": "Add Customer",
+        "Type": "Customer",
+        "Value": 1,
+        "Price_Base": 10,
+        "Price_Pow": 1
+    },
+    {
+        "Index": 2,
+        "Name": "Wood Profit",
+        "Type": "Wood",
+        "Value": 2,
+        "Price_Base": 100,
+        "Price_Pow": 1
+    },
+    {
+        "Index": 3,
+        "Name": "Steel Profit",
+        "Type": "Steel",
+        "Value": 2,
+        "Price_Base": 1,
+        "Price_Pow": 2
+    },
+    {
+        "Index": 4,
+        "Name": "Clay Profit",
+        "Type": "Clay",
+        "Value": 2,
+        "Price_Base": 10,
+        "Price_Pow": 2
+    },
+    {
+        "Index": 5,
+        "Name": "Global Profit",
+        "Type": "All",
+        "Value": 2,
+        "Price_Base": 100,
+        "Price_Pow": 2
+    },
+    {
+        "Index": 6,
+        "Name": "Add Customer",
+        "Type": "Customer",
+        "Value": 2,
+        "Price_Base": 1,
+        "Price_Pow": 3
+    },
+    {
+        "Index": 7,
+        "Name": "Wheat Profit",
+        "Type": "Wheat",
+        "Value": 3,
+        "Price_Base": 10,
+        "Price_Pow": 3
+    },
+    {
+        "Index": 8,
+        "Name": "Wood Profit",
+        "Type": "Wood",
+        "Value": 3,
+        "Price_Base": 100,
+        "Price_Pow": 3
+    },
+    {
+        "Index": 9,
+        "Name": "Steel Profit",
+        "Type": "Steel",
+        "Value": 3,
+        "Price_Base": 1,
+        "Price_Pow": 4
+    },
+    {
+        "Index": 10,
+        "Name": "Clay Profit",
+        "Type": "Clay",
+        "Value": 3,
+        "Price_Base": 10,
+        "Price_Pow": 4
+    },
+    {
+        "Index": 11,
+        "Name": "Global Profit",
+        "Type": "All",
+        "Value": 3,
+        "Price_Base": 100,
+        "Price_Pow": 4
+    }
+]

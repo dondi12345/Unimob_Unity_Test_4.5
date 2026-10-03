@@ -17,6 +17,7 @@ namespace Unimob.Construction
         public TextMeshProUGUI TextCooldown;
         public TextMeshProUGUI TextPrice;
         public Image Icon;
+        public Slider SliderLevelProgress;
         public TooltipCustom TooltipCustom;
 
         public NTButtonEffect ButtonUpgrade;
@@ -37,7 +38,7 @@ namespace Unimob.Construction
             this.TextLevel.text = "Level " + this.Render.Construction.Level.ToString();
             this.TextIncome.text = ServiceBigNumber.FormatBigNumber(this.Render.Construction.GetFinalIncome());
             this.TextCooldown.text = this.Render.Construction.GetCooldown().ToString("F0") + "s";
-
+            this.SliderLevelProgress.value = (float)this.Render.Construction.Level / (float)this.Render.Construction.GetLevelMax();
             this.TextPrice.text = ServiceBigNumber.FormatBigNumber(this.Render.Construction.GetUpgradeCost());
             if (MathBigNumber.IsGreaterThanOrEqual(PlayerManager.Instance.GetGold(), this.Render.Construction.GetUpgradeCost()))
             {

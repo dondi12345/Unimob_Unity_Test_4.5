@@ -8,78 +8,22 @@ using NTPackage.Functions;
 namespace NTPackage.EventDispatcher
 {
     public enum EventCode{
-        ACC_LobbyUDP,
-        ACC_LobbyOut,
-        ACC_Update_PlayerData,
-        ACC_Update_MyPlayerData,
-        ACC_ReceiveEmotion,
-        BattleDeck_TorchUpdate,
-        BattleDeck_UpgradeCharacter,
-        BattleDeck_CharacterTeamUpdate,
-        BattleDeck_DoneLoad,
-        BattleCard_ReciveChatCrossServer,
-        BattleCard_ReciveChatServer,
-        BattleCard_ReciveChatPrivate,
-        BattleCard_UpdateMail,
-        BattleCard_Update_Currency,
-        BattleCard_CharacterTrainning_SelectCharacter,
-        BattleCard_CharacterFilter,
-        BattleCard_CharacterSort,
-        ChangeAvatar,
-        ChangeDisplayName,
-        Chat_ReceiveChat,
-        Chat_ReceiveHistoryChat,
-        Chat_UpdateNotifyChat,
-        NotificationController_UpdateNotification,
-        Mail_UpdateNotifyMail,
-        ChangeSkin,
-        ChangeBaseCharacterCloth,
-        SelectCharacter,
-        LobbyGame_PlayerJoin,
-        LobbyGame_PlayerLeave,        
-        LobbyGame_PlayerUpdate,
-        DodgeConquer_PlayerJoin,
-        DodgeConquer_PlayerLeave,
-        DodgeConquer_PlayerUpdate,
-        DodgeConquer_PlayerUpdateInfo,
-        DodgeConquer_Chat,
-        DodgeConquer_GetWaveData,
-        DodgeConquer_PlayerGetHeal,
-        DodgeConquer_PlayerGetDamage,
-        Marathon_PlayerJoin,
-        Marathon_PlayerLeave,
-        Marathon_PlayerUpdateInfo,
-        Marathon_SpawnProps,
-        JumpingGame_PlayerJoin,
-        JumpingGame_PlayerLeave,
-        JumpingGame_PlayerUpdateInfo,
-        HeatPanGame_PlayerJoin,
-        HeatPanGame_PlayerLeave,
-        HeatPanGame_TrapAdd,
-        HeatPanGame_TrapRemove,
-        HeatPanGame_PlayerGetDamage,
-        UpdateItemData,
-        BoomGame_StuffAdd,
-        BoomGame_StuffRemove,
-        BoomGame_PlayerJoin,
-        BoomGame_PlayerLeave,
-        WaitingGame_PlayerJoin,
-        WaitingGame_PlayerLeave,
+        ConstructionUpgrade,
     }
 
     public class EventListenerManager : MonoBehaviour
     {
         public NTDictionary<string, NTDictionary<string, Action<object>>> ActionsDictionary = new NTDictionary<string, NTDictionary<string, Action<object>>>();
 
-        public static EventListenerManager instance;
+        public static EventListenerManager Instance;
         private void Awake()
         {
-            if (EventListenerManager.instance != null)
+            if (EventListenerManager.Instance != null)
             {
                 Debug.LogWarning("Only 1 instance allow");
                 return;
             }
-            EventListenerManager.instance = this;
+            EventListenerManager.Instance = this;
         }
 
         public void PostEvent(EventCode eventCode,object data = null){
